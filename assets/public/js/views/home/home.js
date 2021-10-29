@@ -9,6 +9,32 @@ $(function ()
 
     }
 
+    // Atualiza o curso.
+    $('.edit-course').on('click', function(){
+
+        let baseUrl = $('#baseUrlPath').val();
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: $('#baseUrlPath').val() + 'courses/read/' + $(this).attr('data-id'),
+            success: function(response)
+            {
+                $('#update-id').val(response.id);
+                $('#update-title').val(response.title);
+                $('#update-description').val(response.description);
+                $('#update-link').val(response.link);
+
+                $('#form-delete').attr('action', baseUrl + 'courses/delete/' + response.id);
+
+                $("#modalEditCourse").modal('show');
+
+            }
+
+        });
+
+    });
+
 });
 
 function setCookie(cookieKey, cookieValue)

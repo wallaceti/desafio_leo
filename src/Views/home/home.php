@@ -169,19 +169,20 @@
 
             <!-- row -->
             <div class="row">
-
+                <?php foreach ($GLOBALS['courses'] as $course) { ?>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="course">
                         <div class="course-img">
-                            <img src="assets/public/img/course01.jpg" alt="">
+                            <img class="img-responsive" src="<?= $course['image'] ?>" alt="">
                         </div>
-                        <h5 class="title">Card title</h5>
-                        <a class="course-title" href="#">Beginner to Pro in Excel: Financial Modeling and Valuation</a>
+                        <h5 class="title"><?= $course['title'] ?></h5>
+                        <a class="course-title" href="#"><?= $course['description'] ?></a>
                         <div class="course-details">
-                            <a href="#" class="btn btn-block btn-success rounded">Ver Curso</a>
+                            <button type="button" class="btn btn-block btn-success rounded edit-course" data-id="<?= $course['id'] ?>">Ver Curso</button>
                         </div>
                     </div>
                 </div>
+                <?php } ?>
 
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="course cursor-pointer" data-toggle="modal" data-target="#modalCreateCourse">
@@ -415,6 +416,11 @@
 <div id='preloader'><div class='preloader'></div></div>
 <!-- /preloader -->
 
+<!-- Market Place -->
+<div id="maket-place">
+    <input type="hidden" id="baseUrlPath" value="<?= $GLOBALS['baseUrlPath'] ?>">
+</div>
+
 <!-- jQuery Plugins -->
 <script type="text/javascript" src="assets/public/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/public/js/bootstrap.min.js"></script>
@@ -458,19 +464,19 @@
 
                 <div class="modal-body">
                         <div class="form-group">
-                            <label for="title">Título</label>
+                            <label for="title">Título*</label>
                             <input type="text" name="title" class="form-control" id="title" placeholder="Título do curso"  required>
                         </div>
                         <div class="form-group">
-                            <label for="description">Descrição</label>
+                            <label for="description">Descrição*</label>
                             <textarea name="description" class="form-control" id="description" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="link">Link</label>
+                            <label for="link">Link*</label>
                             <input type="text" name="link" class="form-control" id="link" placeholder="Link do curso"  required>
                         </div>
                         <div class="custom-file w-50">
-                            <label class="custom-file-label" for="image">Imagem do Curso</label>
+                            <label class="custom-file-label" for="image">Imagem do Curso*</label>
                             <input type="file" name="image" class="custom-file-input w-50" id="image" required>
                         </div>
                 </div>
@@ -481,6 +487,61 @@
                 </div>
 
             </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update/Delete Course -->
+<div class="modal fade" id="modalEditCourse" tabindex="-1" role="dialog" aria-labelledby="modalEditCourse" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditCourseLabel">Atualizar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+                <div class="modal-body">
+
+                    <form enctype="multipart/form-data" method="post" action="<?php echo $GLOBALS['baseUrlPath'] ?>courses/update">
+
+                        <input type="hidden" name="id" id="update-id" value="">
+
+                        <div class="form-group">
+                            <label for="update-title">Título*</label>
+                            <input type="text" name="title" class="form-control" id="update-title" placeholder="Título do curso"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="update-description">Descrição*</label>
+                            <textarea name="description" class="form-control" id="update-description" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="update-link">Link*</label>
+                            <input type="text" name="link" class="form-control" id="update-link" placeholder="Link do curso"  required>
+                        </div>
+                        <div class="custom-file w-50">
+                            <label class="custom-file-label" for="update-image">Imagem do Curso</label>
+                            <input type="file" name="image" class="custom-file-input w-50" id="update-image">
+                        </div>
+                        <div class="form-group col text-center">
+                            <button type="submit" class="btn btn-primary">Atualizar</button>
+                        </div>
+
+                    </form>
+
+                    <hr class="divider">
+
+                    <form class="float-left mt-8" id="form-delete" method="get" action="<?php echo $GLOBALS['baseUrlPath'] ?>courses/delete/">
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
 
         </div>
     </div>

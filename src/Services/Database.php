@@ -33,10 +33,10 @@ class Database
     {
         try {
             # Atribui o objeto PDO à variável $db.
-            self::$db = new PDO($this->driver . ":host=$db_host; dbname=$db_name", $db_user, $db_pass);
+            self::$db = new \PDO($this->driver . ":host=$db_host; dbname=$db_name", $db_user, $db_pass);
 
             # Garante que o PDO lance exceções durante erros.
-            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
             # Garante que os dados sejam armazenados com codificação UFT-8.
             self::$db->exec('SET NAMES utf8');

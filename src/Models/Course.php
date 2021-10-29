@@ -93,7 +93,7 @@ class Course extends BaseModel
 
             $sqlUpdateCourse = '
                 UPDATE ' . $this->table . ' SET 
-                    title = :title, description = :description, link = :link, image = :image, updated_ate = now() 
+                    title = :title, description = :description, link = :link, image = :image, updated_at = now() 
                 WHERE id = :id 
             ';
 
