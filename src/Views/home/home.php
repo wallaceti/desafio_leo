@@ -173,7 +173,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="course">
                         <div class="course-img">
-                            <img class="img-responsive" src="<?= $course['image'] ?>" alt="">
+                            <img class="img-responsive" src="<?= $course['image'] ?>" alt="" style="width: 100%; height: 150px;">
                         </div>
                         <h5 class="title"><?= $course['title'] ?></h5>
                         <a class="course-title" href="#"><?= $course['description'] ?></a>
