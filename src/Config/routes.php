@@ -4,7 +4,15 @@ namespace App\Config;
 
 $dispatcher = \FastRoute\simpleDispatcher(function(\FastRoute\RouteCollector $route) use ($baseUrlPath)
 {
+    # Course
+    $route->post($baseUrlPath . 'courses' , '\App\Controllers\CourseController@create');
+    $route->get($baseUrlPath . 'courses/read/{id:\d+}' , '\App\Controllers\CourseController@read');
+    $route->post($baseUrlPath . 'courses/update' , '\App\Controllers\CourseController@update');
+    $route->get($baseUrlPath . 'courses/delete/{id:\d+}' , '\App\Controllers\CourseController@delete');
+
+    # Home
     $route->get($baseUrlPath, '\App\Controllers\HomeController@index');
+
 });
 
 // Fetch method and URI from somewhere
