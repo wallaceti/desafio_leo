@@ -172,10 +172,9 @@
 
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="course">
-                        <a href="#" class="course-img">
+                        <div class="course-img">
                             <img src="assets/public/img/course01.jpg" alt="">
-                            <i class="course-link-icon fa fa-link"></i>
-                        </a>
+                        </div>
                         <h5 class="title">Card title</h5>
                         <a class="course-title" href="#">Beginner to Pro in Excel: Financial Modeling and Valuation</a>
                         <div class="course-details">
@@ -185,12 +184,10 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="course">
-                        <a href="#" class="course-img">
+                    <div class="course cursor-pointer" data-toggle="modal" data-target="#modalCreateCourse">
+                        <div class="course-img">
                             <img src="assets/public/img/add-curso.png" alt="">
-                            <i class="course-link-icon fa fa-link"></i>
-                        </a>
-
+                        </div>
                     </div>
                 </div>
 
@@ -442,6 +439,49 @@
                 </div>
 
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Create Course -->
+<div class="modal fade" id="modalCreateCourse" tabindex="-1" role="dialog" aria-labelledby="modalCreateCourse" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCreateCourseLabel">Cadastrar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form enctype="multipart/form-data" method="post" action="<?php echo $GLOBALS['baseUrlPath'] ?>courses">
+
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="title">Título</label>
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Título do curso"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Descrição</label>
+                            <textarea name="description" class="form-control" id="description" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="link">Link</label>
+                            <input type="text" name="link" class="form-control" id="link" placeholder="Link do curso"  required>
+                        </div>
+                        <div class="custom-file w-50">
+                            <label class="custom-file-label" for="image">Imagem do Curso</label>
+                            <input type="file" name="image" class="custom-file-input w-50" id="image" required>
+                        </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+
+            </form>
+
         </div>
     </div>
 </div>

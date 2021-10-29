@@ -11,5 +11,7 @@ $base = \explode(basename(__FILE__), $selfUri);
 
 $baseUrlPath = implode('',$base);
 
+$GLOBALS['baseUrlPath'] = $baseUrlPath;
+
 # Carega os arquivos básicos de inicialização da aplicação.
 require_once __DIR__ . '/src/Config/bootstrap.php';
