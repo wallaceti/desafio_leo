@@ -418,11 +418,34 @@
 <div id='preloader'><div class='preloader'></div></div>
 <!-- /preloader -->
 
-
 <!-- jQuery Plugins -->
 <script type="text/javascript" src="assets/public/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/public/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/public/js/main.js"></script>
+<script type="text/javascript" src="assets/public/js/views/home/home.js"></script>
+
+<!-- Modal - Primeiro Acesso -->
+<div id="modal-first-access" class="modal fade">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="mb-5">
+                    <a href="#" class="">
+                        <img class="img-responsive" src="assets/public/img/home-background.jpg" alt="">
+                    </a>
+                </div>
+                <div class="mt-5 mb-3 text-center">
+                    Beginner to Pro in Excel: Financial Modeling and Valuation
+                    <div class="course-details">
+                        <a href="#" class="btn btn-block btn-primary rounded">Inscreva-se</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
